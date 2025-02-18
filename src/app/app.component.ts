@@ -7,6 +7,7 @@ import {
   Event as NavigationEvent,
 } from '@angular/router';
 import { ScrollService } from './scroll.service';
+import { SitemapService } from './sitemap.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent {
   constructor(
     private router: Router,
     private viewportScroller: ViewportScroller,
-    private scrollService: ScrollService
+    private scrollService: ScrollService,
+    private sitemapService: SitemapService,
   ) {
     this.currentUrl = this.router.url;
   }
@@ -45,6 +47,11 @@ export class AppComponent {
           setTimeout(() => this.viewportScroller.scrollToPosition([0, 0]), 0);
         }
       }
+      const routes = this.router.config.map((route) =>
+        route.path ? `/${route.path}` : ''
+      );
+      const sitemap = this.sitemapService.generateSitemap(routes);
+      console.log('sitemap:', sitemap);
     });
   }
   headerShadow: boolean = false;

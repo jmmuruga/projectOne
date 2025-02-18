@@ -13,7 +13,6 @@ import { EnvironmentalConsultingServiceComponent } from './services-and-technolo
 import { AnnualMaintainanceComponent } from './services-and-technology/annual-maintainance/annual-maintainance.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: HomeComponent },
   { path: 'about-watag-technologies-water-solutions', component: AboutComponent },
   { path: 'services-wastewater-management-treatment', component: ServicesAndTechnologyComponent },
